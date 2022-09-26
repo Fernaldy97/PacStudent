@@ -15,10 +15,12 @@ public class AudioLoop : MonoBehaviour
 
     IEnumerator playSound()
     {
+        //Intro
         GetComponent<AudioSource>().clip = IntroMusic;
         GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(IntroMusic.length);
 
+        //LoopBGM
         GetComponent<AudioSource>().clip = LoopMusic;
         GetComponent<AudioSource>().Play();
         GetComponent<AudioSource>().loop = true;
