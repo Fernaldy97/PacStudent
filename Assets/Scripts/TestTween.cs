@@ -24,6 +24,7 @@ public class TestTween : MonoBehaviour
         {
             yield return new WaitForSeconds(7.5f);
             pacMan.DOPath(path, duration, pathType, pathMode, 10);
+            yield return new WaitForSeconds(4.8f);
         }
 
     }
