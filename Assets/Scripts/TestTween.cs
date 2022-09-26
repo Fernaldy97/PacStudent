@@ -14,7 +14,7 @@ public class TestTween : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pacMan.DOPath(path, duration, pathType, pathMode, 10);
+        
         StartCoroutine(playMovement());
     }
 
@@ -22,7 +22,7 @@ public class TestTween : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(10.0f);
+            yield return new WaitForSeconds(7.5f);
             pacMan.DOPath(path, duration, pathType, pathMode, 10);
         }
 
