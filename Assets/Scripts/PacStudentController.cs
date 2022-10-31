@@ -48,7 +48,6 @@ public class PacStudentController : MonoBehaviour
         if (!gameOver)
             GameObject.FindGameObjectWithTag("Timer").GetComponent<UnityEngine.UI.Text>().text = FormatTime(Time.timeSinceLevelLoad - 4f).ToString();
 
-
         Animator animation = gameObject.GetComponent<Animator>();
         int[,] designLevel = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelGenerator>().designLevel;
 
