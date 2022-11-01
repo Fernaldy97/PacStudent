@@ -9,6 +9,8 @@ public class CherryBonus : MonoBehaviour
         //If collides with player
         if (other.gameObject.CompareTag("Player"))
         {
+            //Get audio and play       
+            GameObject.FindGameObjectWithTag("Bonus").GetComponent<AudioSource>().Play();
             //Get score
             int count = int.Parse(GameObject.FindGameObjectWithTag("Score").GetComponent<UnityEngine.UI.Text>().text);
             //Add 100 points

@@ -69,42 +69,29 @@ public class PacStudentController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isEnabled)
         {
             animation.SetTrigger("Up");
-            animation.ResetTrigger("Right");
-            animation.ResetTrigger("Left");
-            animation.ResetTrigger("Down");
         }
 
             //Pac go left
             if (Input.GetKeyDown(KeyCode.A) && isEnabled)
             {
                 animation.SetTrigger("Left");
-                animation.ResetTrigger("Right");
-                animation.ResetTrigger("Up");
-                animation.ResetTrigger("Down");
             }
 
                 //Pac go right
                 if (Input.GetKeyDown(KeyCode.D) && isEnabled)
                 {
                     animation.SetTrigger("Right");
-                    animation.ResetTrigger("Left");
-                    animation.ResetTrigger("Up");
-                    animation.ResetTrigger("Down");
                 }
 
                     //Pac go down
                     if (Input.GetKeyDown(KeyCode.S) && isEnabled)
                     {
                         animation.SetTrigger("Down");
-                        animation.ResetTrigger("Right");
-                        animation.ResetTrigger("Left");
-                        animation.ResetTrigger("Up");
                     }                
             
         //Enable pacStudent movement
         GetMovementVector();
         CharacterPostion();
-
 
         //Play movement audio
         if (!gameOver)
@@ -112,14 +99,13 @@ public class PacStudentController : MonoBehaviour
 
         //Game over
         if (GameObject.FindGameObjectWithTag("Lives").GetComponent<UnityEngine.UI.Text>().text == "0" ||
-            GameObject.FindGameObjectWithTag("Timer").GetComponent<UnityEngine.UI.Text>().text == "99:99:99" ||
+            GameObject.FindGameObjectWithTag("Timer").GetComponent<UnityEngine.UI.Text>().text == "99:99:99" )
             //Code below doesn't work due to missing tag for both normal and power, didn't have time to set up the pellets
-            (GameObject.FindGameObjectsWithTag("Normal").Length == 1 && GameObject.FindGameObjectsWithTag("Power").Length == 1))
+            //(GameObject.FindGameObjectsWithTag("Normal").Length == 1 && GameObject.FindGameObjectsWithTag("Power").Length == 1))
         {
             //GameOver Coroutine
             if (!gameOver)
             {
-
                 StartCoroutine(GameOverCoroutine());
 
                 //use bool value to check to avoid the coroutine being called indefinately
@@ -181,8 +167,6 @@ public class PacStudentController : MonoBehaviour
             {
                 movementAudio.Play();
             }
-
-           
         }
 
         //If pacStudent is not moving
