@@ -30,7 +30,7 @@ public class PacStudentController : MonoBehaviour
         GameObject pacStudent = GameObject.FindGameObjectWithTag("Player");
 
         //PacStudent top left starting position
-        Vector3 initialPosition = new Vector3(-5.5f + 0.5f, 5.5f - 0.5f, 0);
+        Vector3 initialPosition = new Vector3(-13f + 0.5f, 19f - 0.5f, 0);
         pacStudent.transform.position = initialPosition;
     }
 
@@ -52,17 +52,17 @@ public class PacStudentController : MonoBehaviour
         int[,] designLevel = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelGenerator>().designLevel;
 
         //Warping
-        if (gameObject.transform.position.x < -5.5)
+        if (gameObject.transform.position.x < -14.5)
         {
             float originalY = gameObject.transform.position.y;
-            gameObject.transform.position = new Vector3(-5.5f + designLevel.GetUpperBound(1) * 0.5f * 2, originalY, 0);
+            gameObject.transform.position = new Vector3(-14.5f + designLevel.GetUpperBound(1) * 1f * 2, originalY, 0);
         }
 
         //Warping
-        if (gameObject.transform.position.x > -5.5f + designLevel.GetUpperBound(0) * 0.5f * 2)
+        if (gameObject.transform.position.x > -14.5f + designLevel.GetUpperBound(0) * 1f * 2)
         {
             float originalY = gameObject.transform.position.y;
-            gameObject.transform.position = new Vector3(-5.5f, originalY, 0);
+            gameObject.transform.position = new Vector3(-14.5f, originalY, 0);
         }
 
         //Pac go up
@@ -72,36 +72,35 @@ public class PacStudentController : MonoBehaviour
             animation.ResetTrigger("Right");
             animation.ResetTrigger("Left");
             animation.ResetTrigger("Down");
-
-        //Pac go left
-        if (Input.GetKeyDown(KeyCode.A) && isEnabled)
-        {
-            animation.SetTrigger("Left");
-            animation.ResetTrigger("Right");
-            animation.ResetTrigger("Up");
-            animation.ResetTrigger("Down");
         }
 
-        //Pac go right
-        if (Input.GetKeyDown(KeyCode.D) && isEnabled)
-        {
-            animation.SetTrigger("Right");
-            animation.ResetTrigger("Left");
-            animation.ResetTrigger("Up");
-            animation.ResetTrigger("Down");
-        }
+            //Pac go left
+            if (Input.GetKeyDown(KeyCode.A) && isEnabled)
+            {
+                animation.SetTrigger("Left");
+                animation.ResetTrigger("Right");
+                animation.ResetTrigger("Up");
+                animation.ResetTrigger("Down");
+            }
 
-        //Pac go down
-        if (Input.GetKeyDown(KeyCode.S) && isEnabled)
-        {
-            animation.SetTrigger("Down");
-            animation.ResetTrigger("Right");
-            animation.ResetTrigger("Left");
-            animation.ResetTrigger("Up");
-        }
-    }
+                //Pac go right
+                if (Input.GetKeyDown(KeyCode.D) && isEnabled)
+                {
+                    animation.SetTrigger("Right");
+                    animation.ResetTrigger("Left");
+                    animation.ResetTrigger("Up");
+                    animation.ResetTrigger("Down");
+                }
 
-
+                    //Pac go down
+                    if (Input.GetKeyDown(KeyCode.S) && isEnabled)
+                    {
+                        animation.SetTrigger("Down");
+                        animation.ResetTrigger("Right");
+                        animation.ResetTrigger("Left");
+                        animation.ResetTrigger("Up");
+                    }                
+            
         //Enable pacStudent movement
         GetMovementVector();
         CharacterPostion();

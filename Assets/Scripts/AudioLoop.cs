@@ -18,7 +18,7 @@ public class AudioLoop : MonoBehaviour
         //Intro
         GetComponent<AudioSource>().clip = IntroMusic;
         GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(IntroMusic.length);
+        yield return new WaitForSeconds(3f);
 
         //LoopBGM
         GetComponent<AudioSource>().clip = LoopMusic;

@@ -44,21 +44,25 @@ public class LevelGenerator : MonoBehaviour
         //Load Prefabs and Empty
         GameObject normalPellet = (GameObject)Instantiate(Resources.Load("NormalPellet"));
         GameObject powerPellet = (GameObject)Instantiate(Resources.Load("PowerPellet"));
-        GameObject outsideWall = (GameObject)Instantiate(Resources.Load("OutsideWall"));
+        GameObject outsideWall = (GameObject)Instantiate(Resources.Load("VertDoubleLine"));
+        GameObject outWall = (GameObject)Instantiate(Resources.Load("OutsideWall"));
+        GameObject corner = (GameObject)Instantiate(Resources.Load("CornerWall"));
+        GameObject inside = (GameObject)Instantiate(Resources.Load("InsideWall"));
+        GameObject tJunction = (GameObject)Instantiate(Resources.Load("tJunction"));
         GameObject nullObject = (GameObject)Instantiate(Resources.Load("Empty"));
 
         //Initial coordinates
-        float initialX = -5.5f;
-        float initialY = 5.5f;
+        float initialX = -13.5f;
+        float initialY = 18.5f;
 
         //Generate Map
         for (int firstLoop = 0; firstLoop <= designLevel.GetUpperBound(0); firstLoop++)
         {
             for (int secondLoop = 0; secondLoop <= designLevel.GetUpperBound(1); secondLoop++) 
             {
-                //Increment the x coordinate by 0.5 and subtract the y coordinate by 0.5
+                //Increment the x coordinate by 1 and subtract the y coordinate by 1
                 Instantiate(LevelDesign(designLevel[firstLoop, secondLoop]),
-                    new Vector3(initialX + secondLoop * 0.5f, initialY - firstLoop * 0.5f, 0), Quaternion.identity);
+                    new Vector3(initialX + secondLoop * 1f, initialY - firstLoop * 1f, 0), Quaternion.identity);
             }
         }
 
@@ -68,8 +72,8 @@ public class LevelGenerator : MonoBehaviour
             for (int secondLoop = designLevel.GetUpperBound(1); secondLoop >= 0; secondLoop--)
             {
                 Instantiate(LevelDesign(designLevel[firstLoop, secondLoop]),
-                    new Vector3(initialX - (secondLoop - designLevel.GetUpperBound(1)) * 0.5f + (designLevel.GetUpperBound(1) + 1) * 0.5f, 
-                                initialY - firstLoop * 0.5f, 0), Quaternion.identity);
+                    new Vector3(initialX - (secondLoop - designLevel.GetUpperBound(1)) * 1f + (designLevel.GetUpperBound(1) + 1) * 1f, 
+                                initialY - firstLoop * 1f, 0), Quaternion.identity);
             }
         }
 
@@ -79,7 +83,7 @@ public class LevelGenerator : MonoBehaviour
             for (int secondLoop = 0; secondLoop <= designLevel.GetUpperBound(1); secondLoop++)
             {
                 Instantiate(LevelDesign(designLevel[firstLoop, secondLoop]),
-                    new Vector3(initialX + secondLoop * 0.5f, initialY + ((firstLoop + 1f) - designLevel.GetUpperBound(0)) * 0.5f - (designLevel.GetUpperBound(0) + 1) * 0.5f, 0), Quaternion.identity);
+                    new Vector3(initialX + secondLoop * 1f, initialY + ((firstLoop + 1f) - designLevel.GetUpperBound(0)) * 1f - (designLevel.GetUpperBound(0) + 1) * 1f, 0), Quaternion.identity);
             }
         }
 
@@ -89,8 +93,8 @@ public class LevelGenerator : MonoBehaviour
             for (int secondLoop = designLevel.GetUpperBound(1); secondLoop >= 0; secondLoop--) 
             {
                 Instantiate(LevelDesign(designLevel[firstLoop, secondLoop]),
-                    new Vector3(initialX - (secondLoop - designLevel.GetUpperBound(1)) * 0.5f + (designLevel.GetUpperBound(1) + 1) * 0.5f, 
-                                initialY + ((firstLoop + 1f) - designLevel.GetUpperBound(0)) * 0.5f - (designLevel.GetUpperBound(0) + 1) * 0.5f, 0),  
+                    new Vector3(initialX - (secondLoop - designLevel.GetUpperBound(1)) * 1f + (designLevel.GetUpperBound(1) + 1) * 1f, 
+                                initialY + ((firstLoop + 1f) - designLevel.GetUpperBound(0)) * 1f - (designLevel.GetUpperBound(0) + 1) * 1f, 0),  
                                 Quaternion.identity);
             }
         }
@@ -104,14 +108,17 @@ public class LevelGenerator : MonoBehaviour
                     return nullObject;
                 case 1:
                 case 2:
+                    return outWall;
                 case 3:
+                    return corner;
                 case 4:
+                    return inside;
+                case 7:
+                    return tJunction;
                 case 5:
                     return normalPellet;
                 case 6:
                     return powerPellet;
-                case 7:
-                    return outsideWall;
                 default:
                     return nullObject;
             }
@@ -140,7 +147,4 @@ public class LevelGenerator : MonoBehaviour
         gameStart = true;
 
     }
-
-
-
 }
