@@ -240,7 +240,7 @@ public class PacStudentController : MonoBehaviour
         else
         {
             //Victory
-            GameObject.FindGameObjectWithTag("theTimer").GetComponent<UnityEngine.UI.Text>().text = "Victory";
+            GameObject.FindGameObjectWithTag("Timer").GetComponent<UnityEngine.UI.Text>().text = "Victory";
         }
 
         yield return new WaitForSeconds(3f);
