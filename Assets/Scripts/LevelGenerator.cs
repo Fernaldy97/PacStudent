@@ -45,7 +45,7 @@ public class LevelGenerator : MonoBehaviour
         GameObject normalPellet = (GameObject)Instantiate(Resources.Load("NormalPellet"));
         GameObject powerPellet = (GameObject)Instantiate(Resources.Load("PowerPellet"));
         GameObject outsideWall = (GameObject)Instantiate(Resources.Load("VertDoubleLine"));
-        GameObject outWall = (GameObject)Instantiate(Resources.Load("OutsideWall"));
+        GameObject wall = (GameObject)Instantiate(Resources.Load("DirtWall"));
         GameObject corner = (GameObject)Instantiate(Resources.Load("CornerWall"));
         GameObject inside = (GameObject)Instantiate(Resources.Load("InsideWall"));
         GameObject tJunction = (GameObject)Instantiate(Resources.Load("tJunction"));
@@ -108,13 +108,13 @@ public class LevelGenerator : MonoBehaviour
                     return nullObject;
                 case 1:
                 case 2:
-                    return outWall;
+                  
                 case 3:
-                    return corner;
+                  
                 case 4:
-                    return inside;
+
                 case 7:
-                    return tJunction;
+                    return wall;
                 case 5:
                     return normalPellet;
                 case 6:

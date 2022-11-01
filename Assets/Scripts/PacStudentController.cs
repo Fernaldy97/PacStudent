@@ -30,7 +30,7 @@ public class PacStudentController : MonoBehaviour
         GameObject pacStudent = GameObject.FindGameObjectWithTag("Player");
 
         //PacStudent top left starting position
-        Vector3 initialPosition = new Vector3(-13f + 0.5f, 19f - 0.5f, 0);
+        Vector3 initialPosition = new Vector3(-13f + 0.5f, 18f - 0.5f, 0);
         pacStudent.transform.position = initialPosition;
     }
 
@@ -174,27 +174,29 @@ public class PacStudentController : MonoBehaviour
         //If pacStudent move
         if (tempPosition.x - previousPosition.x > 0.1 || tempPosition.y - previousPosition.y > 0.1)
         {
+            //Play particles
+            theParticles.Play();
             //Play movement audio
             if (!movementAudio.isPlaying)
             {
                 movementAudio.Play();
             }
 
-            //Play particles
-            theParticles.Play();
+           
         }
 
         //If pacStudent is not moving
         else if (tempPosition.x - previousPosition.x < 0.1 && tempPosition.y - previousPosition.y < 0.1)
         {
+
+            //Stop particles
+            theParticles.Stop();
             //Stop movement audio
             if (movementAudio.isPlaying)
             {
                 movementAudio.Stop();
             }
 
-            //Stop particles
-            theParticles.Stop();
         }
     }
 

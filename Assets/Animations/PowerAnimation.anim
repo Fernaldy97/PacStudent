@@ -6,9 +6,9 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PowerPelletAnim
+  m_Name: PowerAnimation
   serializedVersion: 7
-  m_Legacy: 1
+  m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -37,8 +37,20 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+    pptrCurveMapping:
+    - {fileID: -1246128093, guid: d971b0cdb2512cd4392bbaa4ffc61277, type: 3}
+    - {fileID: 1935962883, guid: d971b0cdb2512cd4392bbaa4ffc61277, type: 3}
+    - {fileID: -1288366638, guid: d971b0cdb2512cd4392bbaa4ffc61277, type: 3}
+    - {fileID: 1935962883, guid: d971b0cdb2512cd4392bbaa4ffc61277, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
