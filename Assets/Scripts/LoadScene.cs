@@ -14,9 +14,8 @@ public class LoadScene : MonoBehaviour
 
     //Load level 2
     public void LoadSecondLevel()
-
     {
-        SceneManager.LoadSceneAsync("SecondLevel", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("InnovationScene", LoadSceneMode.Single);
     }
 
     //Load Start Scene
