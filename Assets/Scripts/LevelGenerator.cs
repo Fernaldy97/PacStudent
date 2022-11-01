@@ -44,11 +44,10 @@ public class LevelGenerator : MonoBehaviour
         //Load Prefabs and Empty
         GameObject normalPellet = (GameObject)Instantiate(Resources.Load("NormalPellet"));
         GameObject powerPellet = (GameObject)Instantiate(Resources.Load("PowerPellet"));
-        GameObject outsideWall = (GameObject)Instantiate(Resources.Load("VertDoubleLine"));
+    
         GameObject wall = (GameObject)Instantiate(Resources.Load("DirtWall"));
-        GameObject corner = (GameObject)Instantiate(Resources.Load("CornerWall"));
-        GameObject inside = (GameObject)Instantiate(Resources.Load("InsideWall"));
-        GameObject tJunction = (GameObject)Instantiate(Resources.Load("tJunction"));
+     
+
         GameObject nullObject = (GameObject)Instantiate(Resources.Load("Empty"));
 
         //Initial coordinates
