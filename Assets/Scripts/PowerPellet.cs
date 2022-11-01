@@ -23,8 +23,8 @@ public class PowerPellet: MonoBehaviour
             //Get and play scared bgm
             GameObject.FindGameObjectWithTag("ScaredBGM").GetComponent<AudioSource>().Play();
 
-            //Set false
-            gameObject.SetActive(false);
+            //Move object to a place that can't be seen
+            gameObject.transform.position = new Vector3(999, 999, 999);
         }
     }
 
@@ -65,6 +65,7 @@ public class PowerPellet: MonoBehaviour
 
         //Countdown set to false
         GameObject.FindGameObjectWithTag("ScaredTimer").GetComponent<UnityEngine.UI.Text>().enabled = false;
+        GameObject.FindGameObjectWithTag("ScaredBGM").GetComponent<AudioSource>().Stop();
 
         //Resume BGM like normal
         GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>().Play();

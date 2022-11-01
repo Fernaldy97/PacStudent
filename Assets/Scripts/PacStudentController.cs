@@ -188,7 +188,6 @@ public class PacStudentController : MonoBehaviour
         //If pacStudent is not moving
         else if (tempPosition.x - previousPosition.x < 0.1 && tempPosition.y - previousPosition.y < 0.1)
         {
-
             //Stop particles
             theParticles.Stop();
             //Stop movement audio
@@ -196,7 +195,6 @@ public class PacStudentController : MonoBehaviour
             {
                 movementAudio.Stop();
             }
-
         }
     }
 
